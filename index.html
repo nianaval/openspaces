@@ -18,26 +18,125 @@
   Hosted on https://nianaval.github.io/openspaces/
 
 !-->
-!-->
 
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-    
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.16/p5.js"></script> -->
+    <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.16/addons/p5.dom.js'></script> -->
+    <!-- <script src='https://api.mapbox.com/mapbox-gl-js/v0.40.0/mapbox-gl.js'></script> -->
+    <script async defer src=https://maps.googleapis.com/maps/api/js?key=AIzaSyBSG2PlvwbtWFyfOynvCvclCQzmSR1DzrE&callback=initMap></script>
+	  <!-- <link href='https://api.mapbox.com/mapbox-gl-js/v0.40.0/mapbox-gl.css' rel='stylesheet' /> -->
     <link rel="stylesheet" type="text/css" href="styles.css">
-    <script async defer src=https://maps.googleapis.com/maps/api/js?key=AIzaSyDrrmVbbd73KSAqm5gz6hMZ1NN5Rr_7wtA&callback=initMap></script>
-    <script src="script.js" ></script>     
+    <script type ="text/javascript" src="script.js" ></script>     
 
   </head>
   <body>
-    <div class="main-content">
-       <div class="title">
+    <!-- <div id="floating-panel">
+      <input id="address" type="textbox" value="Boston, MA">
+      <input id="submit" type="button" value="Search">
+    </div> -->
+    <div class="sidebar">
+      <div class="title">
           <h1>Open Spaces Boston</h1>
       </div>
-        <p><a href="map.html">Let's Go!</a></p>
+
+      <div class="site-info">
+        <h2>Site Information</h2>
+        <h2><small>Click on a location!</small></h2>
+        <h3>Name</h3>
+        <div id="info-box">
+          <input type="text" name="info-box" value=""/>
+        </div>
+        <div id="info-box2">
+          <input type="text" name="info-box2" value=""/>
+        </div>
+        <h3>Address</h3>
+        <div id="info-box3">
+          <input type="text" name="info-box3" value=""/>
+        </div>
+        <h3>District</h3>
+        <div id="info-box4">
+          <input type="text" name="info-box4" value=""/>
+        </div>
+        <h3>Site Type</h3>
+        <div id="info-box5">
+          <input type="text" name="info-box5" value=""/>
+        </div>
+        <h3>Area Type</h3>
+        <div id="info-box6">
+          <input type="text" name="info-box6" value=""/>
+        </div>
+        <h3>Ownership</h3>
+        <div id="info-box7">
+          <input type="text" name="info-box7" value=""/>
+        </div>
+        <h3>Acres</h3>
+        <div id="info-box8">
+          <input type="text" name="info-box8" value=""/>
+        </div>
+      </div>
+
+      <div class="search">
+        <h2>Search and Filter</h2>
+        <h2 class="soon">One at a time for now--updates coming soon!</h2><br>
+        <h2><small>Filter by:</small></h2>
+        <h3>District</h3>
+        <div id="district">
+          <input onclick="initMap.allston()" id=check type=checkbox><p class="filter"> Allston-Brighton</p><br>
+          <input onclick="initMap.dorchester()" id=check type=checkbox><p class="filter"> Dorchester</p><br>
+          <input onclick="initMap.backbay()" id=check type=checkbox><p class="filter"> Back Bay/Beacon Hill</p><br>
+          <input onclick="initMap.centralboston()" id=check type=checkbox><p class="filter"> Central Boston</p><br>
+          <input onclick="initMap.charlestown()" id=check type=checkbox><p class="filter"> Charlestown</p><br>
+          <input onclick="initMap.eastboston()" id=check type=checkbox><p class="filter"> East Boston</p><br>
+          <input onclick="initMap.fenway()" id=check type=checkbox><p class="filter"> Fenway/Kenmore</p><br>
+          <input onclick="initMap.harborislands()" id=check type=checkbox><p class="filter"> Harbor Islands</p><br>
+          <input onclick="initMap.hydepark()" id=check type=checkbox><p class="filter"> Hyde Park</p><br>
+          <input onclick="initMap.jamaicaplain()" id=check type=checkbox><p class="filter"> Jamaica Plain</p><br>
+          <input onclick="initMap.mattapan()" id=check type=checkbox><p class="filter"> Mattapan</p><br>
+          <input onclick="initMap.roslindale()" id=check type=checkbox><p class="filter"> Roslindale</p><br>
+          <input onclick="initMap.roxbury()" id=check type=checkbox><p class="filter"> Roxbury</p><br>
+          <input onclick="initMap.southboston()" id=check type=checkbox><p class="filter"> South Boston</p><br>
+          <input onclick="initMap.southend()" id=check type=checkbox><p class="filter"> South End</p><br>
+          <input onclick="initMap.westroxbury()" id=check type=checkbox><p class="filter"> West Roxbury</p><br>
+          <br>
+        </div>
+
+        <h3>Site Type</h3>
+          <div id="sitetype">
+            <input onclick="initMap.parks()" id=check type=checkbox><p class="filter"> Parks, Playgrounds &amp; Athletic Fields</p><br>
+            <input onclick="initMap.urban()" id=check type=checkbox><p class="filter"> Urban Wilds &amp; Natural Areas</p><br>
+            <input onclick="initMap.parkways()" id=check type=checkbox><p class="filter"> Parkways, Reservations &amp; Beaches</p><br>
+            <input onclick="initMap.community()" id=check type=checkbox><p class="filter"> Community Gardens</p><br>
+            <input onclick="initMap.malls()" id=check type=checkbox><p class="filter"> Malls, Squares &amp; Plazas</p><br>
+            <input onclick="initMap.cemeteries()" id=check type=checkbox><p class="filter"> Cemeteries &amp; Burying Grounds</p><br>
+            <br>
+          </div>
+
+        <h3>Area Type</h3>
+          <div id="areatype">
+            <input onclick="initMap.residential()" id=check type=checkbox><p class="filter"> Residential District</p><br>
+            <input onclick="initMap.open()" id=check type=checkbox><p class="filter"> Open Space District </p><br>
+            <input onclick="initMap.commercial()" id=check type=checkbox><p class="filter"> Commercial/Office/Business District</p><br>
+            <input onclick="initMap.special()" id=check type=checkbox><p class="filter"> Special District </p><br>
+            <input onclick="initMap.industrial()" id=check type=checkbox><p class="filter"> Industrial District</p><br>
+            <input onclick="initMap.institutional()" id=check type=checkbox><p class="filter"> Institutional District</p><br>
+            <input onclick="initMap.conservation()" id=check type=checkbox><p class="filter"> Conservation Protection Subdistrict</p>
+            <br><br>
+          </div>
+
+          <input onclick="initMap.reset()" type=button value="Reset">
+      </div>
     </div>
+
+    <div id="map"></div>
 
   </body>
 </html>
+
+
+
+
