@@ -164,7 +164,7 @@ button.back {
   /*padding: 10px 0px;*/
 }
 
-a::link{
+a:link{
   color:darkturquoise;
   font-weight: bold;
   text-decoration: none;
