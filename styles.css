@@ -1,33 +1,27 @@
 /*
 
-  ARTG2260
   Nia Naval
   niamnaval@gmail.com
-  Final Project: Open Spaces Boston
-
-  References: 
-  - Google Maps JavaScript API: https://developers.google.com/maps/documentation/javascript/tutorial
-  - w3 Schools
-  - Stack Overflow Questions
-
-  Hosted on https://nianaval.github.io/openspaces/
-
+  Open Spaces Boston
+  
 */
-
-#map {
-    height: 100%;
-    width: 80%;
-    margin: 0;
-    padding: 0;
-    float:left;
-    overflow: hidden;
-    display: inline-block;
-  }
   html, body {
     height: 100%;
     margin-left: 0;
     padding: 0;
   }
+
+  #map {
+    position: absolute;
+    height: 100%;
+    width: 80%;
+    margin: 0;
+    padding: 0;
+    float: left;
+    overflow: hidden;
+    display: inline-block;
+  }
+  
   #floating-panel {
     position: absolute;
     top: 10px;
@@ -121,7 +115,8 @@ p.filter {
 
 .sidebar {
 	float:left;
-	width: 20%;
+  width: 20%;
+  min-width: 300px;
   max-height: 100%;
   overflow-y: auto;
 	display: inline-block;
@@ -150,6 +145,11 @@ input[type=button] {
     cursor: pointer;
 }
 
-
+.soon {
+  font-family: "Univers";
+  font-size: 12px;
+  line-height: 1;
+  /*padding: 10px 0px;*/
+}
 
 
