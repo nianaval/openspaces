@@ -152,4 +152,35 @@ input[type=button] {
   /*padding: 10px 0px;*/
 }
 
+a.link {
+  color: darkturquoise;
+  font-weight: bold;
+}
+
+.about {
+  width: 750px;
+  padding: 30px;
+  margin: 0 auto;
+  background-color: white;
+  opacity: 0.9;
+  border: solid teal 3px;
+
+}
+
+.pabout {
+  font-family: "Univers";
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+body {
+  background-image: url("img/Background.png");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  top: 50px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
 
