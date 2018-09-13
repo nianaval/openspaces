@@ -1,17 +1,9 @@
 /*
 
-  ARTG2260
   Nia Naval
   niamnaval@gmail.com
-  Final Project: Open Spaces Boston
-
-  References: 
-  - Google Maps JavaScript API: https://developers.google.com/maps/documentation/javascript/tutorial
-  - w3 Schools
-  - Stack Overflow Questions
-
-  Hosted on https://nianaval.github.io/openspaces/
-
+  Open Spaces Boston
+  
 */
 
 var marker;
@@ -265,7 +257,7 @@ if ( marker ) {
      //  //     });
      //  // }
     
-      if (feature.getProperty('DISTRICT') != 'Dorchester') {     
+      if (feature.getProperty('DISTRICT') != 'Allston-Brighton') {     
           map.data.overrideStyle(feature, {
                 fillOpacity: 0,
                 strokeWeight: 0
@@ -581,6 +573,25 @@ function special(feature) {
     });
   };
 
+// function industrial(feature) {
+//   map.data.overrideStyle(feature, {
+//     fillOpacity: 0, 
+//     strokeWeight: 0}) &
+//   map.data.forEach(function (feature) { 
+//       if (feature.getProperty('ZonAgg') == 'Industrial District') {     
+//           map.data.overrideStyle(feature, {
+//                 fillOpacity: 0.8,
+//                 fillColor: 'darkturquoise',
+//                 strokeWeight: 0
+//               });
+//           }  
+//     });
+//   };
+
+// function industrial(feature) {
+//   map.data.feature('ZonAgg');
+// };
+
 function industrial(feature) {
   map.data.forEach(function (feature) { 
     
@@ -617,11 +628,36 @@ function conservation(feature) {
     });
   };
 
+  // function clear(feature) {
+  //   // uncheck and clear them
+  //   // TO DO
+
+
+  //   // for each data in the map...
+  //   // remove style/blue color
+  //   //for (...) {
+  //     map.data.forEach(function (feature) { 
+  //       // or override style
+  //       map.data.remove();
+  //     });
+  //   //}
+
+  // }
+
+  function clear(feature){
+    map.data.setStyle({visible: false});
+  }
+
+  // function reset(feature){
+  //   map.data.forEach(function (feature) { 
+  //     map.data.setStyle({visible: true}) & map.data.overrideStyle(feature, {fillColor: 'darkturquoise',
+  //        strokeWeight: 0});
+  //   });
+  // }
 
   function reset(feature) {
-    map.data.forEach(function (feature) { 
-      map.data.revertStyle();
-    });
+    // TODO : uncheck all
+    map.data.revertStyle();
   }
 
 
@@ -651,98 +687,12 @@ function conservation(feature) {
   initMap.commercial = commercial;
   initMap.special = special;
   initMap.industrial = industrial;
+  initMap.cemeteries = cemeteries;
   initMap.institutional = institutional;
   initMap.conservation = conservation;
 
+  initMap.clear = clear;
+  // initMap.unclear = unclear;
   initMap.reset = reset;
 
 }
-
-  // var script = document.createElement('script');
-  // script.src = 'data/openspaces.geojson';
-  // document.getElementsByTagName('head')[0].appendChild(script);
-// window.eqfeed_callback = function(results) {
-//        for (var i = 0; i < results.features.length; i++) {
-//          var coords = results.features[i].geometry.coordinates[0];
-//          console.log(coords[length]);
-//          //lat: coords.length[1], lng: coords.length[0]
-//          var latLng = new google.maps.LatLng(coords[1],coords[0]);
-//          var marker = new google.maps.Marker({
-//            position: latLng,
-//            map: map
-//          });
-//        }
-//      }
-
- // window.eqfeed_callback = function(results) {
- //  for (var i = 0; i < results.features.length; i++) {
- //    var coords = results.features[i].geometry.coordinates[0];
- //    var multicoords = results.features[i].geometry.coordinates[0][0];
- //    // var mocoords = coords[length];
- //    // var latcoords = mocoords[1];
- //    // var loncoords = mocoords[0];
- //    // var polcoords = {lat: latcoords, lng: loncoords};
- //    if(results.features[i].geometry.type == "Polygon"){
- //      //var mocoords = coords.length;
- //      var polcoords = [];
-      
- //      for (var j = 0; j < coords.length; j++){
- //        var latcoords = coords[j][1];
- //        var loncoords = coords[j][0];
- //        polcoords.push({lat: latcoords, lng: loncoords});
- //      }
-    
- //      /*var coords = [
- //      {lat: 42.35018024017816, lng: -71.14740801292824},
- //      {lat: 42.34994329626823, lng: -71.14801432478872},
- //      {lat: 42.35028089080705, lng: -71.1478211477363},
- //      {lat: 42.35018024017816, lng: -71.14740801292824}
- //      ]*/
- //      var latLng = new google.maps.LatLng(coords[1],coords[0]);
- //      var polygon = new google.maps.Polygon({
- //        paths: [polcoords],
- //        strokeColor: '#FF0000',
- //        strokeOpacity: 0.8,
- //        strokeWeight: 1,
- //        fillColor: '#FF0000',
- //        fillOpacity: 0.35
- //        //position: latLng,
- //        //map: map
- //      });
- //      polygon.setMap(map);
- //    }
-
- //    console.log(park);
-
- //    if(results.features[i].geometry.type == "MultiPolygon"){
- //          var multipolcoords = [];
- //          for (var j = 0; j < multicoords.length; j++){
- //            var multilatcoords = multicoords[j][1];
- //            var multiloncoords = multicoords[j][0];
- //            multipolcoords.push({lat: multilatcoords, lng: multiloncoords});
- //          }
- //      var multilatLng = new google.maps.LatLng(multicoords[1],multicoords[0]);
- //      var multipolygon = new google.maps.Polygon({
- //        paths: [multipolcoords],
- //        strokeColor: '#FF0000',
- //        strokeOpacity: 0.8,
- //        strokeWeight: 1,
- //        fillColor: '#FF0000',
- //        fillOpacity: 0.35
- //        //position: latLng,
- //        //map: map
- //      });
- //      multipolygon.setMap(map);
- //    }
-
- //    // document.getElementById('submit').addEventListener('click', function() {
- //    //   geocodeAddress(geocoder, map, infowindow);
- //    // });
- //  }
-  // google.maps.event.addListener(polygon, 'remove_at', function() {
-  //   console.log('Remove polygon.');
-  // });
-
-  // google.maps.event.addDomListener(outer, 'click', function() {
-  //   map.setCenter(chicago)
-  // });
