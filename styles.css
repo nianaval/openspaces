@@ -152,10 +152,27 @@ input[type=button] {
   /*padding: 10px 0px;*/
 }
 
-a.link {
-  color: darkturquoise;
+a:link{
+  color:darkturquoise;
   font-weight: bold;
+  text-decoration: none;
 }
+
+a:visited { 
+  color:#000;
+  text-decoration: none;
+}
+
+a:hover {
+  color:#2c9d91;
+  text-decoration: none;
+}
+
+a:active {
+  color:#2c9d91;
+  text-decoration: none;
+}
+
 
 .about {
   width: 750px;
@@ -164,7 +181,6 @@ a.link {
   background-color: white;
   opacity: 0.9;
   border: solid teal 3px;
-
 }
 
 .pabout {
