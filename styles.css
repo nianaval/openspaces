@@ -174,7 +174,7 @@ a.link {
 }
 
 body {
-  background-image: url("img/Background.png");
+  background-image: url("data/Background.png");
   background-size: cover;
   background-position: center;
   position: relative;
