@@ -173,14 +173,3 @@ a.link {
   line-height: 1.5;
 }
 
-body.about {
-  background-image: url("data/Background.png");
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  top: 50px;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
-
