@@ -173,7 +173,7 @@ a.link {
   line-height: 1.5;
 }
 
-body {
+body.about {
   background-image: url("data/Background.png");
   background-size: cover;
   background-position: center;
